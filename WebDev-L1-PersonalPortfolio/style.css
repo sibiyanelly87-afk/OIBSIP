@@ -397,7 +397,10 @@ a:focus-visible {
     letter-spacing: 1px;
     border-radius: 2px;
 }
-
+.project-status.completed {
+    background-color: #e4f4e9;
+    color: #216e39;
+}
 
 /* 9. CONTACT SECTION */
 
