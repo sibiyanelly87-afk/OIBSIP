@@ -22,12 +22,12 @@ Its purpose is to introduce me professionally and document my journey towards be
 
 - Professional hero section introducing Nelly Sibiya.
 - Professional title: Aspiring Full-Stack Developer.
-- Profile avatar placeholder.
+- Professional profile photo.
 - About Me section describing my background and career interests.
 - Technical skills section displaying my current skills and tools.
 - Projects section showcasing two development projects.
 - GitHub link to the completed ÉLAN STUDIO Fashion Landing Page.
-- Temperature Converter project displayed as in progress.
+- GitHub link to the completed Temperature Converter Website.
 - Contact section containing my email and GitHub profile.
 - Smooth scrolling navigation between website sections.
 - Consistent colour palette and typography.
