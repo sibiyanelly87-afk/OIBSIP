@@ -1,0 +1,491 @@
+
+/* ==========================================
+   NELLY SIBIYA - TEMPERATURE SPECTRUM
+   Modern Temperature Converter
+========================================== */
+
+
+/* 1. GENERAL SETTINGS */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    background:
+        linear-gradient(
+            rgba(238, 245, 255, 0.48),
+            rgba(248, 245, 255, 0.58)
+        ),
+        url("images/background.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    color: #18233d;
+    line-height: 1.7;
+    min-height: 100vh;
+}
+:root {
+    --navy: #111b35;
+    --orange: #ff7043;
+    --coral: #ff9273;
+    --blue: #38bdf8;
+    --purple: #a78bfa;
+    --white: #ffffff;
+    --text: #64748b;
+    --border: #e2e8f0;
+}
+
+
+/* 2. MAIN CONTAINER */
+
+.converter-container {
+    width: 100%;
+    max-width: 1100px;
+    margin: auto;
+    padding: 65px 7% 30px;
+}
+
+
+/* 3. HEADER */
+
+.page-header {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.intro-tag {
+    display: inline-block;
+    color: #2563eb;
+    background: rgba(56, 189, 248, 0.13);
+    border: 1px solid rgba(56, 189, 248, 0.25);
+    border-radius: 30px;
+    padding: 7px 18px;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.page-header h1 {
+    font-family: Georgia, serif;
+    font-size: clamp(35px, 5vw, 55px);
+    font-weight: normal;
+    color: var(--navy);
+    line-height: 1.2;
+    margin-bottom: 16px;
+}
+
+.subtitle {
+    max-width: 600px;
+    margin: auto;
+    color: var(--text);
+    font-size: 16px;
+}
+
+
+/* 4. CONVERTER CARD */
+
+.converter-card {
+    position: relative;
+    max-width: 650px;
+    margin: auto;
+    padding: 42px;
+    background: var(--white);
+    border-radius: 22px;
+    border: 1px solid var(--border);
+    border-top: 5px solid var(--orange);
+    box-shadow: 0 20px 55px rgba(17, 27, 53, 0.10);
+}
+
+
+/* 5. FORM ELEMENTS */
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    color: var(--navy);
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 16px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background-color: #f8fafc;
+    color: var(--navy);
+    font-size: 15px;
+    font-family: inherit;
+    outline: none;
+    transition: border-color 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: var(--blue);
+    box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.16);
+}
+
+
+/* 6. BUTTONS */
+
+.button-group {
+    display: flex;
+    gap: 14px;
+    margin-top: 30px;
+}
+
+.convert-button,
+.reset-button {
+    padding: 15px 22px;
+    font-size: 13px;
+    font-weight: bold;
+    font-family: inherit;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease,
+                background 0.3s ease;
+}
+
+.convert-button {
+    flex: 1;
+    color: var(--white);
+    background: linear-gradient(135deg, #ff7043, #f04472);
+    box-shadow: 0 8px 20px rgba(255, 112, 67, 0.22);
+}
+
+.convert-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(255, 112, 67, 0.32);
+}
+
+.reset-button {
+    color: #2563eb;
+    background: #eaf5ff;
+    border: 1px solid #c8e5fb;
+}
+
+.reset-button:hover {
+    background: #d8edff;
+    transform: translateY(-3px);
+}
+
+.convert-button:focus-visible,
+.reset-button:focus-visible {
+    outline: 3px solid var(--blue);
+    outline-offset: 3px;
+}
+
+
+/* 7. ERROR MESSAGE */
+
+.error-message {
+    min-height: 24px;
+    margin-top: 18px;
+    color: #dc2626;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+/* 8. RESULTS SECTION */
+
+.results-section {
+    margin-top: 85px;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.section-tag {
+    color: #7c3aed;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+}
+
+.section-heading h2 {
+    font-family: Georgia, serif;
+    color: var(--navy);
+    font-size: 35px;
+    font-weight: normal;
+    margin-bottom: 10px;
+}
+
+.section-heading > p:last-child {
+    color: var(--text);
+    font-size: 15px;
+}
+
+
+/* 9. RESULT CARDS */
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.result-card {
+    padding: 32px 15px;
+    border-radius: 16px;
+    text-align: center;
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.result-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 30px rgba(17, 27, 53, 0.10);
+}
+
+/* Celsius - Warm Orange */
+
+.result-card:nth-child(1) {
+    background: linear-gradient(145deg, #fff0e9, #ffddd0);
+    border: 1px solid #ffd0bd;
+}
+
+.result-card:nth-child(1) .unit-label {
+    color: #e65b2f;
+}
+
+/* Fahrenheit - Cool Blue */
+
+.result-card:nth-child(2) {
+    background: linear-gradient(145deg, #eaf7ff, #d3edff);
+    border: 1px solid #b9e2ff;
+}
+
+.result-card:nth-child(2) .unit-label {
+    color: #1684c7;
+}
+
+/* Kelvin - Purple */
+
+.result-card:nth-child(3) {
+    background: linear-gradient(145deg, #f3edff, #e5dcff);
+    border: 1px solid #d7c8ff;
+}
+
+.result-card:nth-child(3) .unit-label {
+    color: #8055d9;
+}
+
+.unit-label {
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.result-card h3 {
+    font-family: Georgia, serif;
+    font-size: clamp(22px, 3vw, 30px);
+    font-weight: normal;
+    color: var(--navy);
+    overflow-wrap: anywhere;
+}
+
+
+/* 10. INFORMATION SECTION */
+
+.information-section {
+    margin-top: 75px;
+    padding: 38px;
+    background: linear-gradient(135deg, #182746, #273c68);
+    border-radius: 18px;
+    color: var(--white);
+    box-shadow: 0 15px 35px rgba(17, 27, 53, 0.14);
+}
+
+.information-section h2 {
+    font-family: Georgia, serif;
+    font-size: 27px;
+    font-weight: normal;
+    color: var(--white);
+    margin-bottom: 20px;
+}
+
+.information-section p {
+    color: #dbeafe;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.information-section strong {
+    color: #7dd3fc;
+}
+
+
+/* 11. FOOTER */
+
+.footer {
+    margin-top: 75px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(100, 116, 139, 0.2);
+    text-align: center;
+}
+
+.footer p {
+    color: var(--text);
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+
+/* 12. TABLET RESPONSIVENESS */
+
+@media (max-width: 768px) {
+
+    .converter-container {
+        padding: 50px 5% 25px;
+    }
+
+    .converter-card {
+        padding: 32px;
+    }
+
+    .results-grid {
+        gap: 12px;
+    }
+
+    .result-card {
+        padding: 26px 10px;
+    }
+
+}
+
+
+/* 13. MOBILE RESPONSIVENESS */
+
+@media (max-width: 600px) {
+
+    .converter-container {
+        padding: 40px 5% 20px;
+    }
+
+    .page-header {
+        margin-bottom: 35px;
+    }
+
+    .page-header h1 {
+        font-size: 35px;
+    }
+
+    .subtitle {
+        font-size: 14px;
+    }
+
+    .converter-card {
+        padding: 25px 20px;
+    }
+
+    .button-group {
+        flex-direction: column;
+    }
+
+    .convert-button,
+    .reset-button {
+        width: 100%;
+    }
+
+    .results-section {
+        margin-top: 60px;
+    }
+
+    .section-heading h2 {
+        font-size: 28px;
+    }
+
+    .results-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .result-card {
+        padding: 25px 15px;
+    }
+
+    .information-section {
+        padding: 27px 22px;
+        margin-top: 55px;
+    }
+
+    .information-section h2 {
+        font-size: 23px;
+    }
+
+    .footer {
+        margin-top: 55px;
+    }
+
+}
+
+
+/* 14. SMALL MOBILE PHONES */
+
+@media (max-width: 380px) {
+
+    .page-header h1 {
+        font-size: 30px;
+    }
+
+    .converter-card {
+        padding: 20px 15px;
+    }
+
+    .form-group input,
+    .form-group select {
+        font-size: 14px;
+        padding: 13px;
+    }
+
+}
+
+
+/* 15. REDUCED MOTION ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+
+}
+@media (max-width: 600px) {
+    body {
+        background-attachment: scroll;
+    }
+}

@@ -1,0 +1,203 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="A simple and responsive temperature converter for Celsius, Fahrenheit and Kelvin.">
+
+    <title>Temperature Converter | Nelly Sibiya</title>
+
+    <!-- External CSS stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- JavaScript file -->
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Main Container -->
+    <main class="converter-container">
+
+        <!-- Header -->
+        <header class="page-header">
+
+            <p class="intro-tag">NELLY SIBIYA PRESENTS</p>
+
+            <h1>Temperature Converter</h1>
+
+            <p class="subtitle">
+                Convert temperatures easily between Celsius,
+                Fahrenheit and Kelvin.
+            </p>
+
+        </header>
+
+
+        <!-- Converter Form -->
+        <section class="converter-card">
+
+            <form id="converterForm" novalidate>
+
+                <!-- Temperature Input -->
+                <div class="form-group">
+
+                    <label for="temperature">
+                        Enter Temperature
+                    </label>
+
+                    <input
+                        type="number"
+                        id="temperature"
+                        name="temperature"
+                        placeholder="Enter a temperature value"
+                        step="any"
+                        required
+                    >
+
+                </div>
+
+
+                <!-- Input Unit Selector -->
+                <div class="form-group">
+
+                    <label for="unit">
+                        Select Input Unit
+                    </label>
+
+                    <select id="unit" name="unit" required>
+
+                        <option value="celsius">
+                            Celsius (°C)
+                        </option>
+
+                        <option value="fahrenheit">
+                            Fahrenheit (°F)
+                        </option>
+
+                        <option value="kelvin">
+                            Kelvin (K)
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Action Buttons -->
+                <div class="button-group">
+
+                    <button type="submit" class="convert-button">
+                        Convert Temperature
+                    </button>
+
+                    <button type="reset" class="reset-button" id="resetButton">
+                        Reset
+                    </button>
+
+                </div>
+
+                <!-- Validation and Error Messages -->
+                <p id="errorMessage" class="error-message"
+                   role="alert" aria-live="polite"></p>
+
+            </form>
+
+        </section>
+
+
+        <!-- Conversion Results -->
+        <section class="results-section" aria-live="polite">
+
+            <div class="section-heading">
+
+                <p class="section-tag">YOUR RESULTS</p>
+
+                <h2>Converted Temperatures</h2>
+
+                <p>
+                    Your temperature will be displayed in all three units.
+                </p>
+
+            </div>
+
+
+            <div class="results-grid">
+
+                <!-- Celsius Result -->
+                <article class="result-card">
+
+                    <p class="unit-label">CELSIUS</p>
+
+                    <h3 id="celsiusResult">-- °C</h3>
+
+                </article>
+
+
+                <!-- Fahrenheit Result -->
+                <article class="result-card">
+
+                    <p class="unit-label">FAHRENHEIT</p>
+
+                    <h3 id="fahrenheitResult">-- °F</h3>
+
+                </article>
+
+
+                <!-- Kelvin Result -->
+                <article class="result-card">
+
+                    <p class="unit-label">KELVIN</p>
+
+                    <h3 id="kelvinResult">-- K</h3>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- Information Section -->
+        <section class="information-section">
+
+            <h2>Understanding Temperature Units</h2>
+
+            <p>
+                <strong>Celsius (°C):</strong>
+                Commonly used for everyday temperatures.
+            </p>
+
+            <p>
+                <strong>Fahrenheit (°F):</strong>
+                Commonly used in the United States.
+            </p>
+
+            <p>
+                <strong>Kelvin (K):</strong>
+                Used in scientific measurements.
+            </p>
+
+        </section>
+
+
+        <!-- Footer -->
+        <footer class="footer">
+
+            <p>
+                Designed and developed by Nelly Sibiya.
+            </p>
+
+            <p>
+                &copy; 2026 Nelly Sibiya. All rights reserved.
+            </p>
+
+        </footer>
+
+    </main>
+
+</body>
+</html>
